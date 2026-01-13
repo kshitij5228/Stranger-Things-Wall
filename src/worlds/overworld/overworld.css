@@ -1,0 +1,194 @@
+.ow-page {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100svh;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.ow-volumeWrapper {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+}
+
+.ow-canvas {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.ow-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.ow-bottomBar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 12px 14px;
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.ow-getLinkBtn {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(0, 0, 0, 0.35);
+  color: rgba(255, 255, 255, 0.92);
+  padding: 10px 14px;
+  border-radius: 10px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.ow-getLinkBtn:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.ow-getLinkBtn:active {
+  transform: translateY(1px);
+}
+
+.ow-shareHint,
+.ow-copyStatus {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.ow-shareLink {
+  max-width: min(92vw, 900px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: underline;
+}
+
+/* Status bar for Overworld */
+.ow-statusBar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 14px 18px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ow-statusLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.ow-sessionId {
+  font-family: monospace;
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+.ow-waitingHint {
+  animation: pulseText 2s ease-in-out infinite;
+}
+
+@keyframes pulseText {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Connection Status Indicator */
+.ow-connectionStatus {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.ow-statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ow-statusDot--connected {
+  background: #4ade80;
+  box-shadow: 0 0 8px #4ade80, 0 0 16px rgba(74, 222, 128, 0.5);
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.ow-statusDot--waiting {
+  background: #facc15;
+  box-shadow: 0 0 8px #facc15;
+  animation: blink 1s ease-in-out infinite;
+}
+
+.ow-statusDot--connecting {
+  background: #facc15;
+  box-shadow: 0 0 8px #facc15;
+  animation: blink 1s ease-in-out infinite;
+}
+
+.ow-statusDot--disconnected {
+  background: #f87171;
+  box-shadow: 0 0 8px #f87171;
+  animation: blink 0.5s ease-in-out infinite;
+}
+
+.ow-statusText {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { 
+    box-shadow: 0 0 8px #4ade80, 0 0 16px rgba(74, 222, 128, 0.5);
+  }
+  50% { 
+    box-shadow: 0 0 12px #4ade80, 0 0 24px rgba(74, 222, 128, 0.7);
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Switch to Upside Down button */
+.ow-switchBtn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 10px;
+  font-family: system-ui, sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  z-index: 1000;
+}
+
+.ow-switchBtn:hover {
+  color: rgba(255, 255, 255, 0.7);
+}

@@ -1,0 +1,92 @@
+@font-face {
+  font-family: 'UpsideDownAlphabet';
+  src: url('/assets/upside_down/fonts/edosz.ttf') format('truetype');
+  font-display: swap;
+}
+
+.ud-alphabet {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+}
+
+.ud-alphabetStage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.ud-letter {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%) rotate(var(--r)) scale(var(--s, 1));
+  transform-origin: center;
+
+  font-family: 'UpsideDownAlphabet', system-ui, sans-serif;
+  font-size: clamp(90px, 14vmin, 220px);
+  letter-spacing: 0;
+  color: rgba(235, 235, 240, 0.75);
+  user-select: none;
+
+  will-change: transform;
+
+  /* Subtle painted look */
+  opacity: 1;
+  
+  /* Soft shadow only */
+  text-shadow:
+    1px 1px 2px rgba(0, 0, 0, 0.4);
+  
+  /* Slight texture filter for painted look */
+  filter: url(#roughPaintUD);
+  
+  transition: transform 0.1s ease, color 0.1s ease;
+}
+
+/* Clickable letters when sessionId exists */
+.ud-letter--clickable {
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.ud-letter--clickable:hover {
+  color: rgba(255, 255, 255, 0.95);
+  transform: translate(-50%, -50%) rotate(var(--r)) scale(calc(var(--s, 1) * 1.1));
+}
+
+.ud-letter--clickable:active {
+  transform: translate(-50%, -50%) rotate(var(--r)) scale(calc(var(--s, 1) * 0.95));
+}
+
+/* Clicked letter glow feedback */
+.ud-letter--clicked {
+  color: #fff !important;
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.6),
+    0 0 40px rgba(100, 200, 255, 0.5),
+    0 0 60px rgba(100, 200, 255, 0.3);
+  animation: letterGlowFeedback 0.8s ease-out forwards;
+}
+
+@keyframes letterGlowFeedback {
+  0% {
+    text-shadow:
+      0 0 5px rgba(255, 255, 255, 0.5),
+      0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  30% {
+    text-shadow:
+      0 0 15px rgba(255, 255, 255, 1),
+      0 0 30px rgba(255, 255, 255, 0.8),
+      0 0 50px rgba(100, 200, 255, 0.6),
+      0 0 80px rgba(100, 200, 255, 0.4);
+  }
+  100% {
+    text-shadow:
+      1px 1px 2px rgba(0, 0, 0, 0.4);
+  }
+}

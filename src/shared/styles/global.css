@@ -1,0 +1,14 @@
+/* Minimal global reset for the layered wall canvas */
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #000;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}

@@ -1,0 +1,88 @@
+@font-face {
+  font-family: 'OverworldAlphabet';
+  src: url('/assets/overworld/fonts/edosz.ttf') format('truetype');
+  font-display: swap;
+}
+
+.ow-alphabet {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+}
+
+.ow-alphabetStage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.ow-tuneHud {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.9);
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.ow-tuneRow {
+  display: grid;
+  grid-template-columns: 42px 170px 48px;
+  align-items: center;
+  gap: 8px;
+}
+
+.ow-tuneLabel {
+  opacity: 0.85;
+}
+
+.ow-tuneRange {
+  width: 100%;
+}
+
+.ow-tuneValue {
+  text-align: right;
+  opacity: 0.9;
+  font-variant-numeric: tabular-nums;
+}
+
+.ow-tuneHint {
+  opacity: 0.75;
+}
+
+.ow-letter {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%) rotate(var(--r)) scale(var(--s, 1));
+  transform-origin: center;
+
+  font-family: 'OverworldAlphabet', system-ui, sans-serif;
+  font-size: clamp(90px, 14vmin, 220px);
+  letter-spacing: 0;
+  color: #0a0502;
+  user-select: none;
+
+  will-change: transform;
+
+  /* Solid painted look - no transparency */
+  opacity: 1;
+  
+  /* Rough painted edges and depth */
+  text-shadow:
+    0 0 1px rgba(0, 0, 0, 0.3),
+    1px 1px 0 rgba(255, 255, 255, 0.05),
+    -1px -1px 0 rgba(0, 0, 0, 0.15),
+    2px 2px 4px rgba(0, 0, 0, 0.2);
+  
+  /* Slight texture filter for painted look */
+  filter: url(#roughPaint);
+}
