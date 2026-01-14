@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Stranger_Things_logo.png" width="500" alt="Stranger Things Logo" />
   
-  <h1>🔦 STRANGER WALL</h1>
+  <h1>STRANGER THINGS WALL</h1>
   
   <p>
     <b>"Friends don't lie... but they do communicate through lights."</b>
@@ -89,3 +89,4 @@ If you are a wizard (or a developer) and want to control the lights yourself:
   <h3>Developed by <a href="https://github.com/kshitij5228">Kshitij Nakod</a></h3>
   <p><i>Still looking for the gate to the Upside Down...</i> 🧇</p>
 </div>
+
