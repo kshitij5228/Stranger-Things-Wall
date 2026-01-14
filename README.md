@@ -1,6 +1,6 @@
 <div align="center">
   
-  <h1>🔦 Stranger Wall</h1>
+  <h1>Stranger Things Wall</h1>
   <p><b>Send secret messages from the Upside Down to the Overworld.</b></p>
   
   <br>
@@ -91,3 +91,4 @@ If you want to host your own wall:
   <b>Developed by <a href="https://github.com/kshitij5228">Kshitij Nakod</a></b><br>
   <i>"Friends don't lie."</i>
 </div>
+
