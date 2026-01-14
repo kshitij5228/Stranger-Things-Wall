@@ -19,6 +19,7 @@ const LETTER_GAP = 500
 
 // Sound effect generator using Web Audio API
 // Creates a soft, gentle bell/chime sound
+// This ALWAYS plays regardless of mute state (mute only affects background music)
 function createLightSound() {
   try {
     const audioContext = new (window.AudioContext || window.webkitAudioContext)()
@@ -62,6 +63,7 @@ export default function OverworldWall() {
   const [receivedLetters, setReceivedLetters] = useState([]) // Store received letters history
   const audioRef = useRef(null)
   const [isMuted, setIsMuted] = useState(false)
+  const [audioUnlocked, setAudioUnlocked] = useState(false)
   const [connectionStatus, setConnectionStatus] = useState('waiting') // 'waiting' | 'connected' | 'disconnected'
 
   // Queue system for letters
@@ -69,23 +71,37 @@ export default function OverworldWall() {
   const isProcessingRef = useRef(false)
   const glowTimeoutRef = useRef(null)
 
+  // Unlock audio ONLY on explicit user interaction (click/touch/key)
   useEffect(() => {
-    // Try to autoplay, if blocked wait for user interaction
-    const playAudio = () => {
-      if (audioRef.current) {
+    const handleInteraction = () => {
+      if (!audioUnlocked && audioRef.current) {
         audioRef.current.volume = 0.3
-        audioRef.current.play().catch(() => {
-          document.addEventListener('click', () => {
-            audioRef.current?.play()
-          }, { once: true })
-        })
+        audioRef.current.play()
+          .then(() => setAudioUnlocked(true))
+          .catch(() => { })
       }
     }
-    playAudio()
-  }, [])
+
+    document.addEventListener('click', handleInteraction)
+    document.addEventListener('touchstart', handleInteraction)
+    document.addEventListener('keydown', handleInteraction)
+
+    return () => {
+      document.removeEventListener('click', handleInteraction)
+      document.removeEventListener('touchstart', handleInteraction)
+      document.removeEventListener('keydown', handleInteraction)
+    }
+  }, [audioUnlocked])
 
   const toggleMute = () => {
     if (audioRef.current) {
+      // If audio wasn't playing yet, start it
+      if (!audioUnlocked) {
+        audioRef.current.volume = 0.3
+        audioRef.current.play()
+          .then(() => setAudioUnlocked(true))
+          .catch(() => { })
+      }
       audioRef.current.muted = !audioRef.current.muted
       setIsMuted(!isMuted)
     }
@@ -104,7 +120,7 @@ export default function OverworldWall() {
     const nextLetter = letterQueueRef.current.shift()
     console.log(`Processing letter: ${nextLetter}, remaining in queue: ${letterQueueRef.current.length}`)
 
-    // Play sound effect (independent of mute state)
+    // Play sound effect (always plays, independent of mute)
     createLightSound()
 
     // Set the glowing letter
@@ -189,6 +205,17 @@ export default function OverworldWall() {
   return (
     <div className="ow-page">
       <audio ref={audioRef} src={`${import.meta.env.BASE_URL}audio/overworld.mp3`} loop />
+
+      {/* Click to Start Overlay */}
+      {!audioUnlocked && (
+        <div className="ow-startOverlay">
+          <div className="ow-startContent">
+            <div className="ow-startIcon">🔊</div>
+            <div className="ow-startText">Click anywhere to start</div>
+          </div>
+        </div>
+      )}
+
       <div className="ow-volumeWrapper">
         <VolumeToggle
           isMuted={isMuted}
