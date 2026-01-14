@@ -22,14 +22,25 @@ export const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);
 
 // 🔹 Step 4: App Check with reCAPTCHA v3
-// Debug token for localhost development
-if (typeof window !== 'undefined' && import.meta.env.DEV) {
-  self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+// ONLY enable App Check in production, skip in development
+// To use App Check in dev, register the debug token in Firebase Console
+if (!import.meta.env.DEV) {
+  const recaptchaKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+  if (recaptchaKey) {
+    try {
+      initializeAppCheck(app, {
+        provider: new ReCaptchaV3Provider(recaptchaKey),
+        isTokenAutoRefreshEnabled: true,
+      });
+      console.log('✅ App Check initialized (production)');
+    } catch (error) {
+      console.warn('⚠️ App Check initialization failed:', error.message);
+    }
+  }
+} else {
+  console.log('ℹ️ App Check disabled in development mode');
 }
 
-initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider(import.meta.env.VITE_RECAPTCHA_SITE_KEY),
-  isTokenAutoRefreshEnabled: true,
-});
-
 export default app;
+
+

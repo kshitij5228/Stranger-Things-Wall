@@ -5,9 +5,8 @@ import App from './App'
 import './shared/styles/global.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <BrowserRouter basename="/Stranger-Things-Wall">
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
+  <BrowserRouter basename="/Stranger-Things-Wall">
+    <App />
+  </BrowserRouter>
 )
+

@@ -32,7 +32,7 @@ export default function UpsideDownWall() {
 
     // Register Upside Down as online
     const cleanupPresence = registerPresence(sessionId, 'upsideDown')
-    
+
     // Listen to Overworld's presence
     const cleanupListener = listenToPresence(sessionId, 'overworld', (status) => {
       console.log('Overworld status:', status)
@@ -71,8 +71,8 @@ export default function UpsideDownWall() {
   const onGetLink = async () => {
     const newSessionId = generateSecureSessionId()
     setSessionId(newSessionId)
-    
-    const nextLink = `${window.location.origin}/wall/${newSessionId}`
+
+    const nextLink = `${window.location.origin}/Stranger-Things-Wall/wall/${newSessionId}`
     setShareLink(nextLink)
     setCopyStatus('')
     setShowHint(true)
@@ -92,7 +92,7 @@ export default function UpsideDownWall() {
     setTimeout(() => {
       setIsFading(true)
     }, 5000)
-    
+
     setTimeout(() => {
       setShowHint(false)
       setCopyStatus('')
@@ -113,13 +113,13 @@ export default function UpsideDownWall() {
 
   return (
     <div className="ud-page">
-      <audio ref={audioRef} src="/audio/upside-down.mp3" loop />
+      <audio ref={audioRef} src={`${import.meta.env.BASE_URL}audio/upside-down.mp3`} loop />
       <div className="ud-volumeWrapper">
-        <VolumeToggle 
-          isMuted={isMuted} 
-          onToggle={toggleMute} 
-          size={36} 
-          variant="dark" 
+        <VolumeToggle
+          isMuted={isMuted}
+          onToggle={toggleMute}
+          size={36}
+          variant="dark"
         />
       </div>
       <DeveloperContact variant="dark" />
@@ -136,8 +136,8 @@ export default function UpsideDownWall() {
           <div className="ud-connectionStatus">
             <span className={`ud-statusDot ud-statusDot--${connectionStatus}`} />
             <span className="ud-statusText">
-              {connectionStatus === 'connected' ? 'Overworld Connected' : 
-               connectionStatus === 'waiting' ? 'Waiting for Overworld...' : 'Overworld Disconnected'}
+              {connectionStatus === 'connected' ? 'Overworld Connected' :
+                connectionStatus === 'waiting' ? 'Waiting for Overworld...' : 'Overworld Disconnected'}
             </span>
           </div>
         </div>
