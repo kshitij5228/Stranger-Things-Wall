@@ -1,12 +1,12 @@
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/99184393/236683073-2e2e2e2e-2e2e-4e2e-8e2e-2e2e2e2e2e2e.png" width="120" alt="Stranger Wall Logo" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Stranger_Things_logo.png/800px-Stranger_Things_logo.png" width="500" alt="Stranger Things Logo" />
   
   <h1>🔦 Stranger Wall</h1>
   <p><b>Send secret messages from the Upside Down to the Overworld.</b></p>
-
+  
   <br>
 
-  <!-- Live Demo Button -->
+  <!-- Live Demo Button - Big and Red -->
   <a href="https://kshitij5228.github.io/Stranger-Things-Wall/">
     <img src="https://img.shields.io/badge/🔴_Live_Demo-Click_Here-red?style=for-the-badge&logo=firebase&logoColor=white" alt="Live Demo" height="40"/>
   </a>
@@ -16,7 +16,7 @@
   <p>
     <img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black" />
     <img src="https://img.shields.io/badge/Firebase-Realtime_DB-FFCA28?style=flat-square&logo=firebase&logoColor=black" />
-    <img src="https://img.shields.io/badge/Vibe-Spooky-000000?style=flat-square" />
+    <img src="https://img.shields.io/badge/Status-Online-brightgreen?style=flat-square" />
   </p>
 </div>
 
@@ -34,7 +34,7 @@ Perfect for sending secret codes, spooky messages, or just having fun with frien
 
 ---
 
-## � Experience the Magic
+## 🔗 Experience the Magic
 
 👉 **[Launch Stranger Wall (Live Demo)](https://kshitij5228.github.io/Stranger-Things-Wall/)**
 
@@ -44,18 +44,19 @@ Perfect for sending secret codes, spooky messages, or just having fun with frien
 
 ## ✨ Features
 
-*   **⚡ Instant Real-Time Sync**: Powered by Firebase, messages appear instantly.
-*   **💡 Dynamic Lighting**: Realistic CSS glow effects and animations for every letter.
-*   **🔊 Immersive Audio**: "Ding" sounds and background ambience for the full experience.
-*   **🌗 Since of Presence**: See when others are online.
-*   **📱 Mobile Friendly**: Works on your phone so you can run from Demogorgons while texting.
+*   **⚡ Instant Real-Time Sync**: Powered by **Firebase**, messages appear instantly.
+*   **💡 Dynamic Lighting**: Realistic glow effects and animations for every letter.
+*   **🔊 Immersive Audio**: "Ding" sounds, creepy clicking, and background ambience.
+*   **🌗 Presence Detection**: See when your friend is online in the other world.
+*   **📱 Mobile Friendly**: Works perfectly on mobile devices.
 
 ---
 
 ## 📸 Demo
 
 <div align="center">
-  <img src="https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif" width="100%" alt="Stranger Things Light Wall GIF" />
+  <!-- Using the classic Intro GIF which is very reliable -->
+  <img src="https://media.giphy.com/media/l41Y9SKrl3kLVamfC/giphy.gif" width="100%" alt="Stranger Things Intro" />
 </div>
 
 ---
@@ -78,7 +79,7 @@ If you want to host your own wall:
 3.  **Configure Firebase**
     *   Create a project at [firebase.google.com](https://firebase.google.com/).
     *   Add a Web App and enable **Realtime Database**.
-    *   Create a `.env` file in the root directory and add your keys (see `.env.example`).
+    *   Create a `.env` file in the root directory (use `.env.example` as a template).
 
 4.  **Run the App**
     ```bash
@@ -90,7 +91,7 @@ If you want to host your own wall:
 ## 🛠️ Tech Stack
 
 *   **Frontend**: React 19, Vite
-*   **Styling**: Modern CSS3, Lucide React Icons
+*   **Styling**: Custom CSS3, Lucide React Icons
 *   **Backend**: Firebase Realtime Database
 *   **Deployment**: GitHub Pages
 
@@ -98,5 +99,5 @@ If you want to host your own wall:
 
 <div align="center">
   <b>Developed by <a href="https://github.com/kshitij5228">Kshitij Nakod</a></b><br>
-  <i>"Friends don't lie."</i> �
+  <i>"Friends don't lie."</i>
 </div>
