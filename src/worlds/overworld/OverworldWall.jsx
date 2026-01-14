@@ -59,6 +59,7 @@ function createLightSound() {
 export default function OverworldWall() {
   const { sessionId } = useParams()
   const [glowingLetter, setGlowingLetter] = useState(null)
+  const [receivedLetters, setReceivedLetters] = useState([]) // Store received letters history
   const audioRef = useRef(null)
   const [isMuted, setIsMuted] = useState(false)
   const [connectionStatus, setConnectionStatus] = useState('waiting') // 'waiting' | 'connected' | 'disconnected'
@@ -108,6 +109,9 @@ export default function OverworldWall() {
 
     // Set the glowing letter
     setGlowingLetter(nextLetter)
+
+    // Add letter to received history
+    setReceivedLetters(prev => [...prev, nextLetter])
 
     // After full glow duration, turn off and process next
     glowTimeoutRef.current = setTimeout(() => {
@@ -177,6 +181,11 @@ export default function OverworldWall() {
     }
   }, [sessionId])
 
+  // Clear message history
+  const clearHistory = () => {
+    setReceivedLetters([])
+  }
+
   return (
     <div className="ow-page">
       <audio ref={audioRef} src={`${import.meta.env.BASE_URL}audio/overworld.mp3`} loop />
@@ -213,6 +222,27 @@ export default function OverworldWall() {
                 ? 'Waiting for Upside Down to connect...'
                 : 'Upside Down disconnected'}
           </span>
+        </div>
+      </div>
+
+      {/* Message Log - Shows received letters */}
+      <div className="ow-messageLog">
+        <div className="ow-messageLogHeader">
+          <span className="ow-messageLogTitle">📨 Received Message</span>
+          {receivedLetters.length > 0 && (
+            <button className="ow-clearBtn" onClick={clearHistory} title="Clear history">
+              Clear
+            </button>
+          )}
+        </div>
+        <div className="ow-messageLogContent">
+          {receivedLetters.length === 0 ? (
+            <span className="ow-noMessages">No messages yet...</span>
+          ) : (
+            <span className="ow-receivedText">
+              {receivedLetters.join('')}
+            </span>
+          )}
         </div>
       </div>
 
