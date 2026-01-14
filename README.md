@@ -1,166 +1,102 @@
-
-
 <div align="center">
-	<img src="https://user-images.githubusercontent.com/99184393/236683073-2e2e2e2e-2e2e-4e2e-8e2e-2e2e2e2e2e2e.png" width="100" alt="Stranger Wall Logo" />
+  <img src="https://user-images.githubusercontent.com/99184393/236683073-2e2e2e2e-2e2e-4e2e-8e2e-2e2e2e2e2e2e.png" width="120" alt="Stranger Wall Logo" />
   
-	<h1>🧱 Stranger Wall <br><sub><sup>Send Secret Messages Like Stranger Things!</sup></sub></h1>
-	<p>
-		<img src="https://img.shields.io/badge/React-19-blue?logo=react" />
-		<img src="https://img.shields.io/badge/Firebase-DB-yellow?logo=firebase" />
-		<img src="https://img.shields.io/badge/Live-RealTime-green" />
-		<img src="https://img.shields.io/badge/Inspired%20By-Stranger%20Things-red" />
-	</p>
-	<img src="https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif" width="400" alt="Stranger Things Wall" />
+  <h1>🔦 Stranger Wall</h1>
+  <p><b>Send secret messages from the Upside Down to the Overworld.</b></p>
+
+  <br>
+
+  <!-- Live Demo Button -->
+  <a href="https://kshitij5228.github.io/Stranger-Things-Wall/">
+    <img src="https://img.shields.io/badge/🔴_Live_Demo-Click_Here-red?style=for-the-badge&logo=firebase&logoColor=white" alt="Live Demo" height="40"/>
+  </a>
+
+  <br><br>
+
+  <p>
+    <img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black" />
+    <img src="https://img.shields.io/badge/Firebase-Realtime_DB-FFCA28?style=flat-square&logo=firebase&logoColor=black" />
+    <img src="https://img.shields.io/badge/Vibe-Spooky-000000?style=flat-square" />
+  </p>
 </div>
 
 ---
 
-<p align="center">
-	<b>Send glowing messages from the Upside Down to the Overworld.<br>Letters light up in real time, just like Stranger Things!<br>Share the link, connect, and chat with lights. 🔦✨</b>
-</p>
+## 🪜 Introduction
+
+Ever wanted to communicate like **Will Byers** in Stranger Things? Now you can.
+
+**Stranger Wall** is a real-time web application that mimics the iconic alphabet light wall. It connects two "worlds":
+1.  **The Upside Down (Sender):** A dark, eerie interface where you type your messages.
+2.  **The Overworld (Receiver):** A warm, living room wall where letters light up in real-time as you type.
+
+Perfect for sending secret codes, spooky messages, or just having fun with friends!
 
 ---
 
-## 🚦 Quick Demo
+## � Experience the Magic
 
-<details>
-<summary>Click to see how it works (screenshots/gif)</summary>
+👉 **[Launch Stranger Wall (Live Demo)](https://kshitij5228.github.io/Stranger-Things-Wall/)**
 
-![Demo](https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif)
-
-</details>
+*(Share the link with a friend to see the real-time interaction! Open one tab as sender and one as receiver!)*
 
 ---
 
 ## ✨ Features
 
-🌈 **Real-time Light Wall** — Send letters, see them glow instantly!
+*   **⚡ Instant Real-Time Sync**: Powered by Firebase, messages appear instantly.
+*   **💡 Dynamic Lighting**: Realistic CSS glow effects and animations for every letter.
+*   **🔊 Immersive Audio**: "Ding" sounds and background ambience for the full experience.
+*   **🌗 Since of Presence**: See when others are online.
+*   **📱 Mobile Friendly**: Works on your phone so you can run from Demogorgons while texting.
 
-🌍 **Two Worlds**
-	- **Upside Down** (Sender, dark theme)
-	- **Overworld** (Receiver, warm theme)
+---
 
-👥 **Live Presence** — Know when your friend is online.
+## 📸 Demo
 
-🔔 **Sound & Animation** — Each letter glows and chimes.
+<div align="center">
+  <img src="https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif" width="100%" alt="Stranger Things Light Wall GIF" />
+</div>
 
-🛡️ **Super Secure** — Rate limiting, App Check, and strict validation.
+---
+
+## 🚀 How to Run Locally
+
+If you want to host your own wall:
+
+1.  **Clone the Repository**
+    ```bash
+    git clone https://github.com/kshitij5228/Stranger-Things-Wall.git
+    cd stranger-wall
+    ```
+
+2.  **Install Dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Configure Firebase**
+    *   Create a project at [firebase.google.com](https://firebase.google.com/).
+    *   Add a Web App and enable **Realtime Database**.
+    *   Create a `.env` file in the root directory and add your keys (see `.env.example`).
+
+4.  **Run the App**
+    ```bash
+    npm run dev
+    ```
 
 ---
 
 ## 🛠️ Tech Stack
 
-<table>
-	<tr><td>⚛️ React 19 (Vite)</td><td>🔥 Firebase Realtime DB</td></tr>
-	<tr><td>🎨 Custom CSS Animations</td><td>🖼️ lucide-react Icons</td></tr>
-</table>
-
----
-
-## 🗂️ Project Structure
-
-```text
-src/
-	App.jsx                # Routing logic
-	firebase.js            # Firebase/AppCheck setup
-	firebase/
-		config.js            # (Firebase config, if used)
-		firebaseService.js   # Send/listen letters, rate limiting
-		presenceService.js   # Online status
-	shared/components/     # LayerCanvas, VolumeToggle, DeveloperContact
-	worlds/
-		overworld/           # Receiver wall (Overworld)
-		upsideDown/          # Sender wall (Upside Down)
-	utils/security.js      # Rate limiters, validation
-```
-
----
-
-## ⚡ How To Use
-
-1. **Clone & Install**
-	 ```bash
-	 git clone <repo-url>
-	 cd stranger-wall
-	 npm install
-	 ```
-2. **Setup Firebase**
-	 - Create a Firebase project
-	 - Enable Realtime Database
-	 - Set rules from [`FIREBASE_SECURITY.md`](FIREBASE_SECURITY.md)
-	 - Add App Check (reCAPTCHA v3)
-	 - Add your Firebase config to `.env`:
-		 ```env
-		 VITE_FIREBASE_API_KEY=...
-		 VITE_FIREBASE_AUTH_DOMAIN=...
-		 VITE_FIREBASE_DATABASE_URL=...
-		 VITE_FIREBASE_PROJECT_ID=...
-		 VITE_FIREBASE_STORAGE_BUCKET=...
-		 VITE_FIREBASE_MESSAGING_SENDER_ID=...
-		 VITE_FIREBASE_APP_ID=...
-		 VITE_RECAPTCHA_SITE_KEY=...
-		 ```
-3. **Run Locally**
-	 ```bash
-	 npm run dev
-	 ```
-4. **Build for Production**
-	 ```bash
-	 npm run build
-	 ```
-
----
-
-## 🧠 How It Works
-
-1. **Upside Down**: Open `/` (home). Click letters to send. Share the link with a friend.
-2. **Overworld**: Open `/wall/:sessionId` (use the shared link). Letters light up as they arrive!
-3. **Presence**: Both users see if the other is online.
-
----
-
-## 🔒 Security Highlights
-
-- 🔐 **Firebase App Check** — Only real users can write/read
-- 🚦 **Rate Limiting** — Max 10 letters/sec, 60/minute per session
-- 🧾 **Session Validation** — Only valid session IDs allowed
-- 🛡️ **Strict DB Rules** — See [`FIREBASE_SECURITY.md`](FIREBASE_SECURITY.md)
-
----
-
-## 👨‍💻 Developer
-
-<table>
-	<tr>
-		<td align="center">
-			<a href="https://github.com/kshitij5228">
-				<img src="https://github.com/kshitij5228.png" width="80" style="border-radius:50%" alt="Kshitij Nakod"/><br/>
-				<b>Kshitij Nakod</b>
-			</a>
-			<br/>
-			<a href="mailto:nakod.kshitij5228@gmail.com">✉️ Email</a> |
-			<a href="https://linkedin.com/in/kshitij-nakod-3293bb299">LinkedIn</a>
-		</td>
-	</tr>
-</table>
-
----
-
-## 🌐 Deployment
-
-- Supports Vercel, Netlify, or any static host
-- See `vercel.json` and `netlify.toml` for configs
-
----
-
-## 📜 Credits
-
-- Inspired by Stranger Things (Netflix)
-- Built with React, Firebase, and lots of lights!
+*   **Frontend**: React 19, Vite
+*   **Styling**: Modern CSS3, Lucide React Icons
+*   **Backend**: Firebase Realtime Database
+*   **Deployment**: GitHub Pages
 
 ---
 
 <div align="center">
-	<b>Enjoy sending secret messages through the wall!<br>🔦✨</b>
+  <b>Developed by <a href="https://github.com/kshitij5228">Kshitij Nakod</a></b><br>
+  <i>"Friends don't lie."</i> �
 </div>
-
