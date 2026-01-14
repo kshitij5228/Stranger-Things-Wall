@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Stranger_Things_logo.png/800px-Stranger_Things_logo.png" width="500" alt="Stranger Things Logo" />
   
   <h1>🔦 Stranger Wall</h1>
   <p><b>Send secret messages from the Upside Down to the Overworld.</b></p>
@@ -49,15 +48,6 @@ Perfect for sending secret codes, spooky messages, or just having fun with frien
 *   **🔊 Immersive Audio**: "Ding" sounds, creepy clicking, and background ambience.
 *   **🌗 Presence Detection**: See when your friend is online in the other world.
 *   **📱 Mobile Friendly**: Works perfectly on mobile devices.
-
----
-
-## 📸 Demo
-
-<div align="center">
-  <!-- Using the classic Intro GIF which is very reliable -->
-  <img src="https://media.giphy.com/media/l41Y9SKrl3kLVamfC/giphy.gif" width="100%" alt="Stranger Things Intro" />
-</div>
 
 ---
 
